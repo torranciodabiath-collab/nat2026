@@ -6,9 +6,9 @@
     <title>Nuestro Camino Juntos 🚲🌸</title>
     
     <!-- 1. Aquí conectamos la tipografía Commissioner desde Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -116,10 +116,8 @@
                 // Martes 15 de Septiembre
                 targetDate: new Date(2020, 8, 15, 0, 0, 0), 
                 title: "Parada 1: Cosmos de Cassiopea",
-                flower: "🌻",
-                message: "<b>Queridísimo Natsu, estoy segura que sería más feliz de conocernos un poco mejor. Sin embargo, lo que tenemos me ha bastado para saber el tipo de persona que eres y lo bonito de tu personalidad;  has sido muy amable conmigo, así que lo aprecio.</b> 
-                    <br><br><b>Y por primera vez te puedo felicitar en tu cumpleaños. ¡Espero que sea grandioso!, me encantan como fechas a recordar y recopilar amor, muchos regalos y comida deliciosa~  que seas super duper feliz, agradezco el chance de participar y desearte cosas bonitas. Que de aquí a un año crezcas más y tengas experiencias qué recordar tal como las tienes ahora, titititi.</b> 
-                    <b>Con muchísimo cariño, Cass</b>"
+                flower: "🌸",
+                message: "Queridísimo Natsu, estoy segura que sería más feliz de conocernos un poco mejor. Sin embargo, lo que tenemos me ha bastado para saber el tipo de persona que eres y lo bonito de tu personalidad; has sido muy amable conmigo, así que lo aprecio.<br><br>Y por primera vez te puedo felicitar en tu cumpleaños. ¡Espero que sea grandioso!, me encantan como fechas a recordar y recopilar amor, muchos regalos y comida deliciosa~ que seas super duper feliz, agradezco el chance de participar y desearte cosas bonitas. Que de aquí a un año crezcas más y tengas experiencias qué recordar tal como las tienes ahora, titititi.<br><br><b>Con muchísimo cariño, Cass</b>"
             },
             {
                 // Miércoles 16 de Septiembre
@@ -199,6 +197,7 @@
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
                 document.getElementById('countdown').innerText = 
+
                     `${days}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
             }
         }
