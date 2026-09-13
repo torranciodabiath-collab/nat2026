@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Camino Juntos 🚲🌸</title>
-    
-    <!-- Enlaces corregidos de Google Fonts para activar la tipografía Commissioner -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -125,33 +123,33 @@
             },
             {
                 targetDate: new Date(2020, 8, 16, 0, 0, 0), 
-                title: "Parada 2: El prado de los tulipanes 🌷",
-                flower: "🌷",
-                message: "<b>¡El viaje continúa! Has recogido un hermoso tulipán elegido por [Amigo 2]:</b><br><br>'Aquí va el mensaje de tu segundo amigo. Si no te lo ha mandado aún, puedes dejar este texto temporal y cambiarlo cuando te responda.'"
+                title: "Parada 2: Minioirquídeas de Kuro",
+                flower: '<img src="miniorquideas.png" class="flower-img">',
+                message: "<b>Mensaje</b><br><br>'Firma.'"
             },
             {
                 targetDate: new Date(2020, 8, 17, 0, 0, 0), 
-                title: "Parada 3: Un dulce aroma a margaritas 🌼",
+                title: "Parada 3: ",
                 flower: "🌼",
-                message: "<b>En esta tercera parada del camino, una nueva flor se une a tu canasta:</b><br><br>¡Alguien muy especial está preparando un mensaje increíble para ti en esta parada! Sigue pedaleando en tu gran viaje de cumpleaños."
+                message: "<b>Mensaje</b><br><br>'Firma.'"
             },
             {
                 targetDate: new Date(2020, 8, 18, 0, 0, 0), 
-                title: "Parada 4: Flores silvestres en el horizonte 🌺",
+                title: "Parada 4: ",
                 flower: "🌺",
-                message: "<b>¡Mira cuántas flores vas acumulando en la bicicleta!:</b><br><br>Esta parada es un espacio reservado para una sorpresa que viene en camino. Las personas que te aman están llenando tu sendero de buenas energías."
+               message: "<b>Mensaje</b><br><br>'Firma.'"
             },
             {
                 targetDate: new Date(2020, 8, 19, 0, 0, 0), 
-                title: "Parada 5: Un campo de rosas rojas 🌹",
+                title: "Parada 5: ",
                 flower: "🌹",
-                message: "<b>La última flor de tus amigos antes del gran destino:</b><br><br>Un hermoso deseo de cumpleaños se está cocinando aquí. Tu ramo de flores silvestres está casi completo."
+                 message: "<b>Mensaje</b><br><br>'Firma.'"   
             },
             {
                 targetDate: new Date(2020, 8, 20, 0, 0, 0), 
-                title: "Destino Final: Tu Altar 🏛️❤️💍",
-                flower: "💐👰‍♀️",
-                message: "Aquí termina el recorrido recogiendo flores, mi amor, porque el camino nos ha traído hasta aquí. Las flores que recolectaste en estos días ahora forman tu ramo de novia.<br><br>Antes de que nos encontremos frente a frente, quiero contarte la historia de cómo llegó ese hermoso vestido a tus manos... [Aquí escribes la historia detallada de su vestido].<br><br>Hoy dejas la bicicleta, porque el siguiente paso de este viaje lo daremos juntos, caminando del brazo hacia el altar. Te amo con todo mi corazón."
+                title: "Destino Final: ",
+                flower: '<img src="finalpic.jpg" class="flower-img">',
+                message: "Lorem<br><br>Ipsum<br><br>Jeje"
             }
         ];
 
@@ -179,13 +177,13 @@
                 document.getElementById('flower').innerHTML = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
-                let nextBtnText = currentStage === stages.length - 1 ? "Comenzar nuestra historia ✨" : "Seguir pedaleando a la siguiente parada 🚲";
+                let nextBtnText = currentStage === stages.length - 1 ? "Aquí comienza tu celebración" : "Siguiente parada mágica";
                 let nextButton = `<br><button onclick="nextStage()">${nextBtnText}</button>`;
                 
                 document.getElementById('content').innerHTML = `<p>${stages[currentStage].message}</p>${nextButton}`;
                 document.getElementById('content').style.display = 'block';
             } else {
-                document.getElementById('route-title').innerText = "Pedaleando hacia la próxima parada...";
+                document.getElementById('route-title').innerText = "Keep  going!";
                 document.getElementById('flower').innerHTML = "🚲💨🌸";
                 document.getElementById('countdown').style.display = 'block';
                 document.getElementById('content').style.display = 'none';
