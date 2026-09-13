@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Camino Juntos 🚲🌸</title>
     
-    <!-- 1. Aquí conectamos la tipografía Commissioner desde Google Fonts -->
+    <!-- Enlaces corregidos de Google Fonts para activar la tipografía Commissioner -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -49,7 +49,6 @@
             font-size: 2.5rem;
             margin: 15px 0;
         }
-        /* DISEÑO DE TUS IMÁGENES DE FLORES */
         .flower-img {
             max-width: 160px;
             height: auto;
@@ -94,6 +93,7 @@
             box-shadow: 0 5px 15px rgba(76,175,80,0.3);
             transition: all 0.3s;
             font-weight: bold;
+            font-family: 'Commissioner', sans-serif;
         }
         button:hover { 
             transform: translateY(-2px);
@@ -118,43 +118,36 @@
     <script>
         const stages = [
             {
-                // Martes 15 de Septiembre
                 targetDate: new Date(2020, 8, 15, 0, 0, 0), 
                 title: "Parada 1: Cosmos de Cassiopea",
-                // Corregido: Ahora lleva las comillas correctas para que funcione
                 flower: '<img src="cosmos.png" class="flower-img">',
                 message: "Queridísimo Natsu, estoy segura que sería más feliz de conocernos un poco mejor. Sin embargo, lo que tenemos me ha bastado para saber el tipo de persona que eres y lo bonito de tu personalidad; has sido muy amable conmigo, así que lo aprecio.<br><br>Y por primera vez te puedo felicitar en tu cumpleaños. ¡Espero que sea grandioso!, me encantan como fechas a recordar y recopilar amor, muchos regalos y comida deliciosa~ que seas super duper feliz, agradezco el chance de participar y desearte cosas bonitas. Que de aquí a un año crezcas más y tengas experiencias qué recordar tal como las tienes ahora, titititi.<br><br><b>Con muchísimo cariño, Cass</b>"
             },
             {
-                // Miércoles 16 de Septiembre
                 targetDate: new Date(2020, 8, 16, 0, 0, 0), 
                 title: "Parada 2: El prado de los tulipanes 🌷",
                 flower: "🌷",
                 message: "<b>¡El viaje continúa! Has recogido un hermoso tulipán elegido por [Amigo 2]:</b><br><br>'Aquí va el mensaje de tu segundo amigo. Si no te lo ha mandado aún, puedes dejar este texto temporal y cambiarlo cuando te responda.'"
             },
             {
-                // Jueves 17 de Septiembre
                 targetDate: new Date(2020, 8, 17, 0, 0, 0), 
                 title: "Parada 3: Un dulce aroma a margaritas 🌼",
                 flower: "🌼",
                 message: "<b>En esta tercera parada del camino, una nueva flor se une a tu canasta:</b><br><br>¡Alguien muy especial está preparando un mensaje increíble para ti en esta parada! Sigue pedaleando en tu gran viaje de cumpleaños."
             },
             {
-                // Viernes 18 de Septiembre
                 targetDate: new Date(2020, 8, 18, 0, 0, 0), 
                 title: "Parada 4: Flores silvestres en el horizonte 🌺",
                 flower: "🌺",
                 message: "<b>¡Mira cuántas flores vas acumulando en la bicicleta!:</b><br><br>Esta parada es un espacio reservado para una sorpresa que viene en camino. Las personas que te aman están llenando tu sendero de buenas energías."
             },
             {
-                // Sábado 19 de Septiembre
                 targetDate: new Date(2020, 8, 19, 0, 0, 0), 
                 title: "Parada 5: Un campo de rosas rojas 🌹",
                 flower: "🌹",
                 message: "<b>La última flor de tus amigos antes del gran destino:</b><br><br>Un hermoso deseo de cumpleaños se está cocinando aquí. Tu ramo de flores silvestres está casi completo."
             },
             {
-                // Domingo 20 de Septiembre - EL GRAN FINAL (TU MENSAJE)
                 targetDate: new Date(2020, 8, 20, 0, 0, 0), 
                 title: "Destino Final: Tu Altar 🏛️❤️💍",
                 flower: "💐👰‍♀️",
@@ -183,8 +176,6 @@
             if (difference <= 0) {
                 clearInterval(timerInterval);
                 document.getElementById('route-title').innerText = stages[currentStage].title;
-                
-                // Carga el texto HTML o la imagen de la flor correctamente
                 document.getElementById('flower').innerHTML = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
@@ -201,9 +192,10 @@
 
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
                 document.getElementById('countdown').innerText = 
-
                     `${days}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
             }
         }
