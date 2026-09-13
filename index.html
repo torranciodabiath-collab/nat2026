@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños! 🎂</title>
+    <title>Nuestro Camino Juntos 🚲🌸</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
-            color: #4a5568;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            color: #2e7d32;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,77 +18,129 @@
             padding: 20px;
             text-align: center;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            max-width: 500px;
+        .journey-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            max-width: 600px;
             width: 100%;
+            border: 2px solid #a5d6a7;
+            position: relative;
         }
-        h1 { color: #ff4d6d; margin-bottom: 10px; }
-        .timer {
+        .bike-icon {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: pedalear 3s ease-in-out infinite alternate;
+        }
+        @keyframes pedalear {
+            0% { transform: translateX(-10px) rotate(-3deg); }
+            100% { transform: translateX(10px) rotate(3deg); }
+        }
+        h1 { color: #1b5e20; margin-bottom: 5px; font-size: 1.8rem; }
+        h2 { color: #c2185b; margin-top: 0; font-size: 1.4rem; }
+        .flower-badge {
             font-size: 2.5rem;
-            font-weight: bold;
-            color: #ff758f;
-            margin: 20px 0;
-            letter-spacing: 2px;
+            margin: 15px 0;
         }
-        .message {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #590d22;
+        .timer {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #c2185b;
+            background: #fce4ec;
+            padding: 10px 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 20px 0;
+            letter-spacing: 1px;
+            border: 1px dashed #f48fb1;
+        }
+        .message-box {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #37474f;
             display: none;
-            animation: fadeIn 1s ease-in-out forwards;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #81c784;
+            text-align: left;
+            animation: aparecer 0.8s ease-out forwards;
         }
         button {
-            background-color: #ff4d6d;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
             color: white;
             border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            border-radius: 25px;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border-radius: 30px;
             cursor: pointer;
-            margin-top: 15px;
-            transition: transform 0.2s;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(76,175,80,0.3);
+            transition: all 0.3s;
+            font-weight: bold;
         }
-        button:hover { transform: scale(1.05); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+        }
+        @keyframes aparecer { 
+            from { opacity: 0; transform: scale(0.95); } 
+            to { opacity: 1; transform: scale(1); } 
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1 id="title">Cargando sorpresa...</h1>
+    <div class="journey-container">
+        <div class="bike-icon">🚲💨</div>
+        <h1 id="route-title">Tu viaje en bicicleta</h1>
+        <div id="flower" class="flower-badge">🌸</div>
         <div id="countdown" class="timer">00:00:00</div>
-        <div id="content" class="message"></div>
+        <div id="content" class="message-box"></div>
     </div>
 
     <script>
-        // CONFIGURA AQUÍ TUS FECHAS Y MENSAJES (Formato: Año, Mes [0-11], Día, Hora, Minuto)
-        // Nota: Enero es 0, Febrero es 1, Marzo es 2... Diciembre es 11.
+        // CONFIGURACIÓN DEL CAMINO (Modo de prueba activo: Año 2020 para que puedas leerlos)
+        // CAMBIA LOS TEXTOS DE LOS AMIGOS AQUÍ ABAJO:
         const stages = [
-    {
-        targetDate: new Date(2020, 8, 15, 0, 0, 0), // Cambiado a 2020 para probar
-        title: "Sorpresa 1",
-        message: "¡Feliz pre-cumpleaños! Eres una persona increíble... ❤️"
-    },
-    {
-        targetDate: new Date(2020, 8, 16, 0, 0, 0), // Cambiado a 2020 para probar
-        title: "Sorpresa 2",
-        message: "¡OFICIALMENTE ES TU CUMPLEAÑOS!... 🥳🎉"
-    }
-];
-
+            {
+                targetDate: new Date(2020, 8, 15, 0, 0, 0), 
+                title: "Parada 1: El jardín de [Nombre Amigo 1]",
+                flower: "🌻",
+                message: "<b>Mensaje de [Amigo 1]:</b><br>'¡Feliz cumpleaños! Qué lindo ver cómo avanza tu camino. Te deseo lo mejor en esta nueva etapa...' (Aquí vas pegando lo que te manden)."
+            },
+            {
+                targetDate: new Date(2020, 8, 15, 0, 0, 30), // 30 segundos después en modo prueba
+                title: "Parada 2: El prado de [Nombre Amigo 2]",
+                flower: "🌷",
+                message: "<b>Mensaje de [Amigo 2]:</b><br>'Amiga hermosa, espero que disfrutes este viaje en bici. Eres maravillosa y te mereces toda la felicidad del mundo...'"
+            },
+            {
+                targetDate: new Date(2020, 8, 15, 0, 1, 0), 
+                title: "Parada 3: El bosque de [Nombre Amigo 3]",
+                flower: "🌹",
+                message: "<b>Mensaje de [Amigo 3]:</b><br>'¡A pedalear fuerte! Que la vida te llene de flores y sonrisas hoy y siempre. Un abrazo gigante...'"
+            },
+            {
+                // EL GRAN FINAL (TU MENSAJE)
+                targetDate: new Date(2020, 8, 15, 0, 1, 30), 
+                title: "Destino Final: Tu Altar 🏛️❤️💍",
+                flower: "💐👰‍♀️",
+                message: "Aquí termina el recorrido recogiendo flores, mi amor, porque el camino nos ha traído hasta aquí. Antes de que nos encontremos frente a frente, quiero contarte la historia de cómo llegó ese hermoso vestido a tus manos... [Aquí escribes la historia del vestido]. Hoy dejas la bicicleta, porque el siguiente paso de este viaje lo daremos juntos, caminando del brazo hacia el altar. Te amo."
+            }
+        ];
 
         let currentStage = 0;
         let timerInterval;
 
         function updateCountdown() {
             if (currentStage >= stages.length) {
-                document.getElementById('title').innerText = "¡Eso es todo por ahora!";
+                document.getElementById('route-title').innerText = "¡Llegamos al inicio de nuestra vida juntos!";
+                document.getElementById('flower').innerText = "👩‍❤️‍👨💒✨";
                 document.getElementById('countdown').style.display = 'none';
-                document.getElementById('content').innerHTML = "<p>¡Espero que te hayan gustado tus sorpresas! 🎂</p>";
+                document.getElementById('content').innerHTML = "<p style='text-align:center;'>¡Te espero en el altar para comenzar nuestra mayor aventura! 💍❤️</p>";
                 document.getElementById('content').style.display = 'block';
                 clearInterval(timerInterval);
                 return;
@@ -99,17 +151,19 @@
             const difference = target - now;
 
             if (difference <= 0) {
-                // El contador terminó, mostrar mensaje
                 clearInterval(timerInterval);
-                document.getElementById('title').innerText = stages[currentStage].title;
+                document.getElementById('route-title').innerText = stages[currentStage].title;
+                document.getElementById('flower').innerText = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
-                let nextButton = currentStage < stages.length - 1 ? `<br><button onclick="nextStage()">Ver siguiente cuenta regresiva</button>` : '';
+                let nextBtnText = currentStage === stages.length - 1 ? "Comenzar nuestra historia ✨" : "Seguir pedaleando a la siguiente parada 🚲";
+                let nextButton = `<br><button onclick="nextStage()">${nextBtnText}</button>`;
+                
                 document.getElementById('content').innerHTML = `<p>${stages[currentStage].message}</p>${nextButton}`;
                 document.getElementById('content').style.display = 'block';
             } else {
-                // Calcular tiempo restante
-                document.getElementById('title').innerText = "Próxima sorpresa en...";
+                document.getElementById('route-title').innerText = "Pedaleando hacia la próxima parada...";
+                document.getElementById('flower').innerText = "🚲💨🌸";
                 document.getElementById('countdown').style.display = 'block';
                 document.getElementById('content').style.display = 'none';
 
@@ -131,9 +185,9 @@
             }
         }
 
-        // Iniciar
         updateCountdown();
         timerInterval = setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
+
