@@ -6,13 +6,12 @@
     <title>Nuestro Camino Juntos 🚲🌸</title>
     
     <!-- 1. Aquí conectamos la tipografía Commissioner desde Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            /* 2. Aquí le decimos a la página que use Commissioner */
             font-family: 'Commissioner', sans-serif;
             background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
             color: #2e7d32;
@@ -50,12 +49,14 @@
             font-size: 2.5rem;
             margin: 15px 0;
         }
+        /* DISEÑO DE TUS IMÁGENES DE FLORES */
         .flower-img {
-            max-width: 150px;
+            max-width: 160px;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             margin: 10px 0;
+            border: 3px solid #ffffff;
         }
         .timer {
             font-size: 2.2rem;
@@ -115,15 +116,13 @@
     </div>
 
     <script>
-        // PROGRAMACIÓN DE LA RUTA DE CUMPLEAÑOS
-        // Para probar la web HOY, deja el año en 2020. 
-        // Cuando ya vayas a entregar el link, cambia TODOS los 2020 por 2026.
         const stages = [
             {
                 // Martes 15 de Septiembre
                 targetDate: new Date(2020, 8, 15, 0, 0, 0), 
                 title: "Parada 1: Cosmos de Cassiopea",
-                flower: <img src="cosmos.png" class="flower-img">,
+                // Corregido: Ahora lleva las comillas correctas para que funcione
+                flower: '<img src="cosmos.png" class="flower-img">',
                 message: "Queridísimo Natsu, estoy segura que sería más feliz de conocernos un poco mejor. Sin embargo, lo que tenemos me ha bastado para saber el tipo de persona que eres y lo bonito de tu personalidad; has sido muy amable conmigo, así que lo aprecio.<br><br>Y por primera vez te puedo felicitar en tu cumpleaños. ¡Espero que sea grandioso!, me encantan como fechas a recordar y recopilar amor, muchos regalos y comida deliciosa~ que seas super duper feliz, agradezco el chance de participar y desearte cosas bonitas. Que de aquí a un año crezcas más y tengas experiencias qué recordar tal como las tienes ahora, titititi.<br><br><b>Con muchísimo cariño, Cass</b>"
             },
             {
@@ -184,7 +183,9 @@
             if (difference <= 0) {
                 clearInterval(timerInterval);
                 document.getElementById('route-title').innerText = stages[currentStage].title;
-                document.getElementById('flower').innerText = stages[currentStage].flower;
+                
+                // Carga el texto HTML o la imagen de la flor correctamente
+                document.getElementById('flower').innerHTML = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
                 let nextBtnText = currentStage === stages.length - 1 ? "Comenzar nuestra historia ✨" : "Seguir pedaleando a la siguiente parada 🚲";
@@ -194,14 +195,12 @@
                 document.getElementById('content').style.display = 'block';
             } else {
                 document.getElementById('route-title').innerText = "Pedaleando hacia la próxima parada...";
-                document.getElementById('flower').innerText = "🚲💨🌸";
+                document.getElementById('flower').innerHTML = "🚲💨🌸";
                 document.getElementById('countdown').style.display = 'block';
                 document.getElementById('content').style.display = 'none';
 
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
                 document.getElementById('countdown').innerText = 
 
