@@ -39,7 +39,6 @@
             100% { transform: translateX(10px) rotate(3deg); }
         }
         h1 { color: #1b5e20; margin-bottom: 5px; font-size: 1.8rem; }
-        h2 { color: #c2185b; margin-top: 0; font-size: 1.4rem; }
         .flower-badge {
             font-size: 2.5rem;
             margin: 15px 0;
@@ -102,33 +101,51 @@
     </div>
 
     <script>
-        // CONFIGURACIÓN DEL CAMINO (Modo de prueba activo: Año 2020 para que puedas leerlos)
-        // CAMBIA LOS TEXTOS DE LOS AMIGOS AQUÍ ABAJO:
+        // PROGRAMACIÓN DE LA RUTA DE CUMPLEAÑOS
+        // Para probar la web HOY, deja el año en 2020. 
+        // Cuando ya vayas a entregar el link, cambia TODOS los 2020 por 2026.
         const stages = [
             {
-                targetDate: new Date(2020, 8, 15, 0, 0, 0), 
-                title: "Parada 1: El jardín de [Nombre Amigo 1]",
+                // Martes 15 de Septiembre
+                targetDate: new Date(2026, 8, 15, 0, 0, 0), 
+                title: "Parada 1: Un comienzo lleno de girasoles 🌻",
                 flower: "🌻",
-                message: "<b>Mensaje de [Amigo 1]:</b><br>'¡Feliz cumpleaños! Qué lindo ver cómo avanza tu camino. Te deseo lo mejor en esta nueva etapa...' (Aquí vas pegando lo que te manden)."
+                message: "<b>¡Feliz Cumpleaños! En esta primera parada recoges un girasol y un mensaje especial de [Amigo 1]:</b><br><br>'Aquí pegas el primer mensaje real que ya tienes listo...'"
             },
             {
-                targetDate: new Date(2020, 8, 15, 0, 0, 30), // 30 segundos después en modo prueba
-                title: "Parada 2: El prado de [Nombre Amigo 2]",
+                // Miércoles 16 de Septiembre
+                targetDate: new Date(2026, 8, 16, 0, 0, 0), 
+                title: "Parada 2: El prado de los tulipanes 🌷",
                 flower: "🌷",
-                message: "<b>Mensaje de [Amigo 2]:</b><br>'Amiga hermosa, espero que disfrutes este viaje en bici. Eres maravillosa y te mereces toda la felicidad del mundo...'"
+                message: "<b>¡El viaje continúa! Has recogido un hermoso tulipán elegido por [Amigo 2]:</b><br><br>'Aquí va el mensaje de tu segundo amigo. Si no te lo ha mandado aún, puedes dejar este texto temporal y cambiarlo cuando te responda.'"
             },
             {
-                targetDate: new Date(2020, 8, 15, 0, 1, 0), 
-                title: "Parada 3: El bosque de [Nombre Amigo 3]",
+                // Jueves 17 de Septiembre
+                targetDate: new Date(2026, 8, 17, 0, 0, 0), 
+                title: "Parada 3: Un dulce aroma a margaritas 🌼",
+                flower: "🌼",
+                message: "<b>En esta tercera parada del camino, una nueva flor se une a tu canasta:</b><br><br>¡Alguien muy especial está preparando un mensaje increíble para ti en esta parada! Sigue pedaleando en tu gran viaje de cumpleaños."
+            },
+            {
+                // Viernes 18 de Septiembre
+                targetDate: new Date(2026, 8, 18, 0, 0, 0), 
+                title: "Parada 4: Flores silvestres en el horizonte 🌺",
+                flower: "🌺",
+                message: "<b>¡Mira cuántas flores vas acumulando en la bicicleta!:</b><br><br>Esta parada es un espacio reservado para una sorpresa que viene en camino. Las personas que te aman están llenando tu sendero de buenas energías."
+            },
+            {
+                // Sábado 19 de Septiembre
+                targetDate: new Date(2026, 8, 19, 0, 0, 0), 
+                title: "Parada 5: Un campo de rosas rojas 🌹",
                 flower: "🌹",
-                message: "<b>Mensaje de [Amigo 3]:</b><br>'¡A pedalear fuerte! Que la vida te llene de flores y sonrisas hoy y siempre. Un abrazo gigante...'"
+                message: "<b>La última flor de tus amigos antes del gran destino:</b><br><br>Un hermoso deseo de cumpleaños se está cocinando aquí. Tu ramo de flores silvestres está casi completo."
             },
             {
-                // EL GRAN FINAL (TU MENSAJE)
-                targetDate: new Date(2020, 8, 15, 0, 1, 30), 
+                // Domingo 20 de Septiembre - EL GRAN FINAL (TU MENSAJE)
+                targetDate: new Date(2026, 8, 20, 0, 0, 0), 
                 title: "Destino Final: Tu Altar 🏛️❤️💍",
                 flower: "💐👰‍♀️",
-                message: "Aquí termina el recorrido recogiendo flores, mi amor, porque el camino nos ha traído hasta aquí. Antes de que nos encontremos frente a frente, quiero contarte la historia de cómo llegó ese hermoso vestido a tus manos... [Aquí escribes la historia del vestido]. Hoy dejas la bicicleta, porque el siguiente paso de este viaje lo daremos juntos, caminando del brazo hacia el altar. Te amo."
+                message: "Aquí termina el recorrido recogiendo flores, mi amor, porque el camino nos ha traído hasta aquí. Las flores que recolectaste en estos días ahora forman tu ramo de novia.<br><br>Antes de que nos encontremos frente a frente, quiero contarte la historia de cómo llegó ese hermoso vestido a tus manos... [Aquí escribes la historia detallada de su vestido].<br><br>Hoy dejas la bicicleta, porque el siguiente paso de este viaje lo daremos juntos, caminando del brazo hacia el altar. Te amo con todo mi corazón."
             }
         ];
 
@@ -140,7 +157,7 @@
                 document.getElementById('route-title').innerText = "¡Llegamos al inicio de nuestra vida juntos!";
                 document.getElementById('flower').innerText = "👩‍❤️‍👨💒✨";
                 document.getElementById('countdown').style.display = 'none';
-                document.getElementById('content').innerHTML = "<p style='text-align:center;'>¡Te espero en el altar para comenzar nuestra mayor aventura! 💍❤️</p>";
+                document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>¡Te espero en el altar para comenzar nuestra mayor aventura! 💍❤️</b></p>";
                 document.getElementById('content').style.display = 'block';
                 clearInterval(timerInterval);
                 return;
@@ -190,4 +207,5 @@
     </script>
 </body>
 </html>
+
 
