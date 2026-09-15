@@ -9,20 +9,27 @@
     <link href="https://googleapis.com/css2?family=Commissioner:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-    /* Registro de tu fuente para títulos */
+
     @font-face {
         font-family: 'MisTitulosY2K';
         src: url('titles.ttf') format('truetype');
         font-weight: bold;
         font-style: normal;
+        unicode-range: U+0020-002F, U+003A-007E, U+00A0-00FF, U+0100-017F;
     }
 
-    /* Registro de tu fuente para el texto general */
     @font-face {
         font-family: 'MiTextoGeneral';
         src: url('body.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
+    }
+        @font-face {
+        font-family: 'MisTitulosY2K';
+        src: url('body.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+        unicode-range: U+0030-0039;
     }
 body {
         background: url('fondo.png') no-repeat center center fixed, radial-gradient(circle at top left, #ff9ebb, #ff007f);
@@ -78,7 +85,8 @@ body {
     border: 3px solid #baffc9;
 }
 .timer {
-        font-family: 'MisTitulosY2K', sans-serif;
+    font-family: 'MiTextoGeneral', sans-serif;
+    
     font-size: 2.2rem;
     font-weight: bold;
     color: #baffc9; 
@@ -90,6 +98,7 @@ body {
     letter-spacing: 1px;
     border: 2px solid #ffffff;
 }
+
 .message-box {
     font-family: 'MiTextoGeneral', sans-serif;
     font-size: 1.15rem;
