@@ -113,11 +113,44 @@ button:hover {
             from { opacity: 0; transform: scale(0.95); } 
             to { opacity: 1; transform: scale(1); } 
         }
+                /* Estilos para fijar las imágenes en las esquinas */
+        .bg-corner {
+            position: fixed;
+            z-index: -1; /* Hace que se queden DETRÁS de la tarjeta principal */
+            max-width: 250px; /* Tamaño máximo en computadoras */
+            height: auto;
+            pointer-events: none; /* Evita que estorben si se hace clic sobre ellas */
+            opacity: 0.85; /* Un toque de transparencia estilo aesthetic */
+        }
+
+        /* Esquina Inferior Izquierda */
+        .corner-left {
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Esquina Superior Derecha */
+        .corner-right {
+            top: 0;
+            right: 0;
+        }
+
+        /* Ajuste automático para que en celulares no tapen la tarjeta del centro */
+        @media (max-width: 768px) {
+            .bg-corner {
+                max-width: 120px; /* Se hacen más pequeñas en pantallas chicas */
+                opacity: 0.5; /* Se vuelven más sutiles */
+            }
+        }
+
     </style>
 </head>
 <body>
+    <img src="hbd.png" class="bg-corner corner-left" alt="decoracion">
+    <img src="mainpc.png" class="bg-corner corner-right" alt="decoracion">
 
     <div class="journey-container">
+
         <div class="bike-icon">--</div>
         <h1 id="route-title">Tu viaje en bicicleta</h1>
         <div id="flower" class="flower-badge">--</div>
