@@ -12,8 +12,6 @@
         @import url('https://googleapis.com');
         body {
     font-family: 'Commissioner', sans-serif;
-    
-    /* ESTA LÍNEA AGREGA TU IMAGEN Y MANTIENE EL GRADIENTE POR SI ACASO */
     background: url('fondo.png') no-repeat center center fixed, radial-gradient(circle at top left, #ff9ebb, #ff007f);
     background-size: cover;
     
@@ -64,13 +62,13 @@
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     margin: 10px 0;
-    border: 3px solid #baffc9; /* Borde verde menta en la foto */
+    border: 3px solid #baffc9;
 }
 .timer {
     font-size: 2.2rem;
     font-weight: bold;
-    color: #baffc9; /* Números en verde menta */
-    background: rgba(255, 0, 127, 0.6); /* Fondo rosa oscuro */
+    color: #baffc9; 
+    background: rgba(255, 0, 127, 0.6); 
     padding: 10px 20px;
     border-radius: 40px;
     display: inline-block;
@@ -117,7 +115,6 @@ button:hover {
         .bg-corner {
             position: fixed;
             z-index: -1; /* Hace que se queden DETRÁS de la tarjeta principal */
-            max-width: 250px; /* Tamaño máximo en computadoras */
             height: auto;
             pointer-events: none; /* Evita que estorben si se hace clic sobre ellas */
             opacity: 0.85; /* Un toque de transparencia estilo aesthetic */
