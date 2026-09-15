@@ -11,28 +11,32 @@
     <style>
         @import url('https://googleapis.com');
         body {
-            font-family: 'Commissioner', sans-serif;
-            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
-            color: #2e7d32;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+    font-family: 'Commissioner', sans-serif;
+    background: radial-gradient(circle at top left, #ff9ebb, #ff007f);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
         .journey-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            max-width: 600px;
-            width: 100%;
-            border: 2px solid #a5d6a7;
-            position: relative;
-        }
+    background: rgba(255, 182, 210, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px 25px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(255, 0, 127, 0.3);
+    max-width: 550px;
+    width: 100%;
+    border: 2px solid #baffc9;
+    position: relative;
+}
+
         .bike-icon {
             font-size: 3.5rem;
             margin-bottom: 10px;
@@ -43,60 +47,63 @@
             0% { transform: translateX(-10px) rotate(-3deg); }
             100% { transform: translateX(10px) rotate(3deg); }
         }
-        h1 { color: #1b5e20; margin-bottom: 5px; font-size: 1.8rem; }
-        .flower-badge {
-            font-size: 2.5rem;
-            margin: 15px 0;
-        }
-        .flower-img {
-            max-width: 160px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            margin: 10px 0;
-            border: 3px solid #ffffff;
-        }
-        .timer {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: #c2185b;
-            background: #fce4ec;
-            padding: 10px 20px;
-            border-radius: 15px;
-            display: inline-block;
-            margin: 20px 0;
-            letter-spacing: 1px;
-            border: 1px dashed #f48fb1;
-        }
-        .message-box {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #37474f;
-            display: none;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: left;
-            animation: aparecer 0.8s ease-out forwards;
-        }
-        button {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(76,175,80,0.3);
-            transition: all 0.3s;
-            font-weight: bold;
-            font-family: 'Commissioner', sans-serif;
-        }
-        button:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(76,175,80,0.4);
-        }
+    h1 { 
+    color: #ffffff; 
+    margin-bottom: 5px; 
+    font-size: 2rem; 
+    text-shadow: 2px 2px 0px #ff007f;
+}
+.flower-img {
+    max-width: 160px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    margin: 10px 0;
+    border: 3px solid #baffc9; /* Borde verde menta en la foto */
+}
+.timer {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #baffc9; /* Números en verde menta */
+    background: rgba(255, 0, 127, 0.6); /* Fondo rosa oscuro */
+    padding: 10px 20px;
+    border-radius: 40px;
+    display: inline-block;
+    margin: 20px 0;
+    letter-spacing: 1px;
+    border: 2px solid #ffffff;
+}
+.message-box {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #ffffff; /* Texto de las cartas en blanco para que resalte */
+    display: none;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #baffc9;
+    text-align: left;
+    animation: aparecer 0.8s ease-out forwards;
+}
+
+button {
+    background: #baffc9;
+    color: #ff007f;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(186, 255, 201, 0.4);
+    transition: all 0.3s;
+    font-weight: bold;
+}
+button:hover { 
+    transform: scale(1.05);
+    background: #ffffff;
+}
+
         @keyframes aparecer { 
             from { opacity: 0; transform: scale(0.95); } 
             to { opacity: 1; transform: scale(1); } 
