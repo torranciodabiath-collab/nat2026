@@ -259,12 +259,13 @@ button:hover {
                 flower: '<img src="rosas.png" class="flower-img">',
                  message: "<b>Tu siguiente tarea es escoger una o varias flores de cada set, y ponerlas en la canasta de tu bici. Puedes dejar las demás aquí, serán tu jardín en casa.</b>"   
             },
-            {
+                        {
                 targetDate: new Date(2020, 8, 20, 0, 0, 0), 
                 title: "Destino Final: ",
                 flower: '<img src="finalpic.jpg" class="flower-img">',
-                message: "La última nota, la dejó en la puerta del cobertizo, para proteger su siguiente regalo, y a su prometido de miradas indeseadas, aunque en el lugar no hubiese más que las personas del staff, lejos de la vista, pero listas en caso de ser necesitadas.<br><br>“Ya tienes tu ramo, ahora sigue tu vestido. Seguro Sebastian te puede ayudar de ser necesario, así que te espero al final del camino.”<br><br><img src='frontdress.jpg' class='message-inline-img'><img src='backdress.jpg' class='message-inline-img'>"
+                message: "La última nota, la dejó en la puerta del cobertizo, para proteger su siguiente regalo, y a su prometido de miradas indeseadas, aunque en el lugar no hubiese más que las personas del staff, lejos de la vista, pero listas en caso de ser necesitadas.<br><br>“Ya tienes tu ramo, ahora sigue tu vestido. Seguro Sebastian te puede ayudar de ser necesario, así que te espero al final del camino.”<br><br><div class=\"message-gallery\"><img src=\"frontdress.jpg\" class=\"gallery-img\"><img src=\"backdress.jpg\" class=\"gallery-img\"></div>"
             }
+
         ];
 
         let currentStage = 0;
@@ -272,7 +273,7 @@ button:hover {
 
         function updateCountdown() {
             if (currentStage >= stages.length) {
-                document.getElementById('route-title').innerText = "¡Llegamos al inicio de una nueva etapa nuestra vida juntos!";
+                document.getElementById('route-title').innerText = "¡Llegamos al inicio de una nueva etapa en nuestra vida juntos!";
                 
                 // Corregido a innerHTML para que muestre la foto real
                 document.getElementById('flower').innerHTML = '<img src="arch.jpg" class="flower-img">';
