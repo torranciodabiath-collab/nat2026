@@ -182,17 +182,53 @@ button:hover {
     box-sizing: border-box;
 }
 
-/* Diseño individual de cada una de las dos fotos */
-.gallery-img {
-    display: table-cell;
-    width: 50%;
-    max-width: 50%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    border: 2px solid #baffc9;
-}
+        /* Diseño adaptado para fotos verticales de vestidos */
+        .gallery-img {
+            display: table-cell;
+            width: 50%;
+            max-width: 50%;
+            height: auto; /* Altura automática para evitar cortes */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 2px solid #baffc9;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* Efecto visual al posicionar el cursor sobre cualquier foto clicable */
+        .gallery-img:hover, .flower-img:hover {
+            transform: scale(1.02);
+        }
+
+        .flower-img {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* Fondo oscuro para la visualización de la foto expandida */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        /* Contenedor de la foto dentro de la ventana emergente */
+        .modal-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #baffc9;
+        }
+
 
 
 
@@ -214,6 +250,11 @@ button:hover {
         <div id="countdown" class="timer">00:00:00</div>
         <div id="content" class="message-box"></div>
     </div>
+        <!-- Ventana emergente oculta para ampliar imágenes -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal()">
+        <img id="modalTarget" class="modal-img" src="" alt="Ampliada">
+    </div>
+
 
     <script>
         const stages = [
@@ -281,6 +322,22 @@ button:hover {
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>Cuando estés listo para dar este paso, te estaré esperando siempre.</b></p>";
                 document.getElementById('content').style.display = 'block';
+                        /* Lógica para escuchar los clics en todas las imágenes de la página */
+        document.addEventListener('click', function(e) {
+            if (e.target && (e.target.classList.contains('gallery-img') || e.target.classList.contains('flower-img'))) {
+                openModal(e.target.src);
+            }
+        });
+
+        function openModal(src) {
+            document.getElementById('modalTarget').src = src;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
                 clearInterval(timerInterval);
                 return;
             }
