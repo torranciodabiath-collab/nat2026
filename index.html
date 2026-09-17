@@ -59,16 +59,24 @@ body {
     position: relative;
 }
 
-        .bike-icon {
-            font-size: 3.5rem;
+                /* DISEÑO Y ANIMACIÓN DE TU IMAGEN DE BICICLETA */
+        .bike-container {
             margin-bottom: 10px;
             display: inline-block;
+            filter: drop-shadow(0 0 12px rgba(186, 255, 201, 0.6)); /* Brillo verde menta */
             animation: pedalear 3s ease-in-out infinite alternate;
         }
-        @keyframes pedalear {
-            0% { transform: translateX(-10px) rotate(-3deg); }
-            100% { transform: translateX(10px) rotate(3deg); }
+
+        .bike-img {
+            max-width: 120px; /* Ajusta este número si quieres que se vea más grande o pequeña */
+            height: auto;
         }
+
+        @keyframes pedalear {
+            0% { transform: translateX(-10px) rotate(-4deg); }
+            100% { transform: translateX(10px) rotate(4deg); }
+        }
+
     h1 { 
     color: #ffffff; 
     margin-bottom: 5px; 
@@ -159,10 +167,30 @@ button:hover {
         /* Ajuste automático para que en celulares no tapen la tarjeta del centro */
         @media (max-width: 768px) {
             .bg-corner {
-                max-width: 120px; /* Se hacen más pequeñas en pantallas chicas */
+          
                 opacity: 0.5; /* Se vuelven más sutiles */
             }
         }
+                /* Contenedor que alinea las fotos una al lado de la otra */
+        .message-gallery {
+            display: flex;
+            gap: 10px; /* Espacio de separación entre ambas fotos */
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        /* Diseño individual de cada una de las dos fotos */
+        .gallery-img {
+            flex: 1; /* Hace que ambas midan exactamente lo mismo de ancho */
+            width: 50%; /* Se dividen el espacio a la mitad */
+            height: auto;
+            object-fit: cover; /* Recorta la imagen proporcionalmente si tienen alturas distintas */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 2px solid #baffc9; /* Marco verde menta como tu portada */
+        }
+
+
 
     </style>
 </head>
@@ -172,7 +200,9 @@ button:hover {
 
     <div class="journey-container">
 
-        <div class="bike-icon">--</div>
+         <div class="bike-container">
+                <img src="bikeicon.jpg" class="bike-img" alt="bicicleta">
+            </div>
         <h1 id="route-title">Tu viaje en bicicleta</h1>
         <div id="flower" class="flower-badge">--</div>
         <div id="countdown" class="timer">00:00:00</div>
@@ -227,7 +257,7 @@ button:hover {
                 targetDate: new Date(2020, 8, 20, 0, 0, 0), 
                 title: "Destino Final: ",
                 flower: '<img src="finalpic.jpg" class="flower-img">',
-                message: "Lorem<br><br>Ipsum<br><br>Jeje"
+                message: "La última nota, la dejó en la puerta del cobertizo, para proteger su siguiente regalo, y a su prometido de miradas indeseadas, aunque en el lugar no hubiese más que las personas del staff, lejos de la vista, pero listas en caso de ser necesitadas.<br><br>“Ya tienes tu ramo, ahora sigue tu vestido. Seguro Sebastian te puede ayudar de ser necesario, así que te espero al final del camino.”<br><br><img src='frontdress.jpg' class='message-inline-img'><img src='backdress.jpg' class='message-inline-img'>"
             }
         ];
 
@@ -237,9 +267,9 @@ button:hover {
         function updateCountdown() {
             if (currentStage >= stages.length) {
                 document.getElementById('route-title').innerText = "¡Llegamos al inicio de una nueva etapa nuestra vida juntos!";
-                document.getElementById('flower').innerText = "Fotito";
+                document.getElementById('flower').innerText = '<img src="arch.jpg" class="flower-img">';
                 document.getElementById('countdown').style.display = 'none';
-                document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>Lorem Ipsum</b></p>";
+                document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>Cuando estés listo para dar este paso, te estaré esperando siempre.</b></p>";
                 document.getElementById('content').style.display = 'block';
                 clearInterval(timerInterval);
                 return;
