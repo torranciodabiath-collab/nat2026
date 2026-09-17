@@ -171,26 +171,29 @@ button:hover {
                 opacity: 0.5; /* Se vuelven más sutiles */
             }
         }
-        /* Contenedor de la galería interna */
-        .message-gallery {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+  /* Contenedor que alinea las fotos una al lado de la otra de forma estricta */
+.message-gallery {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
 
-        /* Diseño estricto de las dos imágenes para que no se desborden */
-        .gallery-img {
-            flex: 1;
-            width: 50%;
-            max-width: 48%; /* Evita que se expandan de más */
-            height: 150px; /* Altura fija para que queden simétricas */
-            object-fit: cover; /* Recorta la foto de forma estética para rellenar el espacio */
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border: 2px solid #baffc9;
-        }
+/* Diseño individual de cada una de las dos fotos */
+.gallery-img {
+    display: table-cell;
+    width: 50%;
+    max-width: 50%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 2px solid #baffc9;
+}
+
 
 
 
@@ -293,7 +296,7 @@ button:hover {
                 document.getElementById('flower').innerHTML = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
-                let nextBtnText = currentStage === stages.length - 1 ? "comenzar nuestra historia ✨" : "seguir pedaleando ➔";
+                let nextBtnText = currentStage === stages.length - 1 ? "comenzar nuestra historia" : "seguir pedaleando ➔";
                 let nextButton = `<br><button onclick="nextStage()">${nextBtnText}</button>`;
                 
                 let messageContent = stages[currentStage].message;
