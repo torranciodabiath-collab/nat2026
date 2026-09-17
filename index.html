@@ -249,11 +249,12 @@ button:hover {
         <div id="flower" class="flower-badge">--</div>
         <div id="countdown" class="timer">00:00:00</div>
         <div id="content" class="message-box"></div>
-    </div>
         <!-- Ventana emergente oculta para ampliar imágenes -->
     <div id="imageModal" class="modal-overlay" onclick="closeModal()">
         <img id="modalTarget" class="modal-img" src="" alt="Ampliada">
     </div>
+    </div>
+        
 
 
     <script>
@@ -389,6 +390,22 @@ button:hover {
 
         updateCountdown();
         timerInterval = setInterval(updateCountdown, 1000);
+                // Lógica global para escuchar los clics en todas las imágenes de la página
+        document.addEventListener('click', function(e) {
+            if (e.target && (e.target.classList.contains('gallery-img') || e.target.classList.contains('flower-img'))) {
+                openModal(e.target.src);
+            }
+        });
+
+        function openModal(src) {
+            document.getElementById('modalTarget').src = src;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
     </script>
 </body>
 </html>
