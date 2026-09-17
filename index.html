@@ -171,24 +171,27 @@ button:hover {
                 opacity: 0.5; /* Se vuelven más sutiles */
             }
         }
-                /* Contenedor que alinea las fotos una al lado de la otra */
+        /* Contenedor de la galería interna */
         .message-gallery {
             display: flex;
-            gap: 10px; /* Espacio de separación entre ambas fotos */
+            gap: 10px;
             margin-top: 15px;
             width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Diseño individual de cada una de las dos fotos */
+        /* Diseño estricto de las dos imágenes para que no se desborden */
         .gallery-img {
-            flex: 1; /* Hace que ambas midan exactamente lo mismo de ancho */
-            width: 50%; /* Se dividen el espacio a la mitad */
-            height: auto;
-            object-fit: cover; /* Recorta la imagen proporcionalmente si tienen alturas distintas */
+            flex: 1;
+            width: 50%;
+            max-width: 48%; /* Evita que se expandan de más */
+            height: 150px; /* Altura fija para que queden simétricas */
+            object-fit: cover; /* Recorta la foto de forma estética para rellenar el espacio */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border: 2px solid #baffc9; /* Marco verde menta como tu portada */
+            border: 2px solid #baffc9;
         }
+
 
 
 
@@ -267,7 +270,10 @@ button:hover {
         function updateCountdown() {
             if (currentStage >= stages.length) {
                 document.getElementById('route-title').innerText = "¡Llegamos al inicio de una nueva etapa nuestra vida juntos!";
-                document.getElementById('flower').innerText = '<img src="arch.jpg" class="flower-img">';
+                
+                // Corregido a innerHTML para que muestre la foto real
+                document.getElementById('flower').innerHTML = '<img src="arch.jpg" class="flower-img">';
+                
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>Cuando estés listo para dar este paso, te estaré esperando siempre.</b></p>";
                 document.getElementById('content').style.display = 'block';
@@ -282,16 +288,21 @@ button:hover {
             if (difference <= 0) {
                 clearInterval(timerInterval);
                 document.getElementById('route-title').innerText = stages[currentStage].title;
+                
+                // CAMBIADO A innerHTML AQUÍ TAMBIÉN (Muy importante)
                 document.getElementById('flower').innerHTML = stages[currentStage].flower;
                 document.getElementById('countdown').style.display = 'none';
                 
-                let nextBtnText = currentStage === stages.length - 1 ? "Aquí comienza tu celebración" : "Siguiente parada mágica";
+                let nextBtnText = currentStage === stages.length - 1 ? "comenzar nuestra historia ✨" : "seguir pedaleando ➔";
                 let nextButton = `<br><button onclick="nextStage()">${nextBtnText}</button>`;
                 
-                document.getElementById('content').innerHTML = `<p>${stages[currentStage].message}</p>${nextButton}`;
+                let messageContent = stages[currentStage].message;
+                document.getElementById('content').innerHTML = `${messageContent}${nextButton}`;
                 document.getElementById('content').style.display = 'block';
             } else {
-                document.getElementById('route-title').innerText = "Keep  going!";
+                document.getElementById('route-title').innerText = "pedaleando...";
+                
+                // CAMBIADO A innerHTML AQUÍ TAMBIÉN
                 document.getElementById('flower').innerHTML = "🚲💨🌸";
                 document.getElementById('countdown').style.display = 'block';
                 document.getElementById('content').style.display = 'none';
@@ -305,6 +316,7 @@ button:hover {
                     `${days}d ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
             }
         }
+
 
         function nextStage() {
             currentStage++;
