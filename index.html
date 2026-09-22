@@ -327,7 +327,9 @@ button:hover {
                 document.getElementById('flower').innerHTML = '<img src="arch.jpg" class="flower-img">';
                 
                 document.getElementById('countdown').style.display = 'none';
-                document.getElementById('content').innerHTML = "<p style='text-align:center; font-size:1.3rem;'><b>Cuando estés listo para dar este paso, te estaré esperando siempre.</b></p>";
+                document.getElementById('content').innerHTML = 
+                    "<p style='text-align:center; font-size:1.3rem;'><b>Cuando estés listo para dar este paso, te estaré esperando siempre.</b></p>" +
+                    "<br><button onclick=\"window.open('https://discord.com/channels/1467340613220569202/1550196991760535632', '_blank')\" style='background:#5865F2; color:#ffffff; box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4); text-transform: none;'>entrar al canal</button>";
                 document.getElementById('content').style.display = 'block';
                         /* Lógica para escuchar los clics en todas las imágenes de la página */
         document.addEventListener('click', function(e) {
